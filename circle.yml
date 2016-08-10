@@ -7,9 +7,9 @@ machine:
 
 dependencies:
   pre:
-       - "curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&version=6.17.0&source=github'"
-       - sudo dpkg -i cf-cli_amd64.deb
-       - cf -v
+      - "curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&version=6.17.0&source=github'"
+      - sudo dpkg -i cf-cli_amd64.deb
+      - cf -v
       - sudo add-apt-repository ppa:cwchien/gradle -y
       - sudo apt-get update
       - sudo apt-get install gradle
