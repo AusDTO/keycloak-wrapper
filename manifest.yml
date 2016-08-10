@@ -1,7 +1,8 @@
 ---
 applications:
-  path: ./build/distributions/keycloak-wrapper-1.0-SNAPSHOT.zip
+- name: keycloak
   memory: 512M
-  disk_quota: 128M
+  disk_quota: 1G
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  path: ./build/distributions/keycloak-wrapper-1.0-SNAPSHOT.zip
   stack: cflinuxfs2
