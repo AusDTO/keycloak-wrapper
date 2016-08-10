@@ -1,14 +1,15 @@
 machine:
   java:
     version: oraclejdk8
-  gradle:
-      version:2.14
   environment:
       APP_NAME: keycloak
 
 
 dependencies:
   pre:
+  - sudo add-apt-repository ppa:cwchien/gradle -y
+  - sudo apt-get update
+  - sudo apt-get install gradle
    - gradle --version
    - gradle wrapper
    - ./gradlew build distZip
