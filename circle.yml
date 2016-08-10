@@ -1,9 +1,8 @@
 machine:
-   java:
-       version: openjdk8
-
   environment:
     APP_NAME: keycloak
+    java:
+      version: openjdk8
 
 dependencies:
   pre:
