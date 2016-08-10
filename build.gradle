@@ -1,0 +1,55 @@
+plugins {
+    id "io.spring.dependency-management" version "0.6.0.RELEASE"
+
+}
+
+
+group 'com.dto.identity'
+
+version '1.0-SNAPSHOT'
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: "io.spring.dependency-management"
+
+sourceCompatibility = 1.8
+
+mainClassName = 'com.dto.identity.KeyCloakServer'
+
+repositories {
+    mavenCentral()
+    jcenter()
+
+}
+
+
+dependencies {
+    compile 'org.keycloak:keycloak-services'
+    compile 'org.keycloak:keycloak-server-spi'
+    compile 'org.keycloak:keycloak-themes'
+    compile 'org.freemarker:freemarker'
+    compile 'org.keycloak:keycloak-common'
+    compile 'org.keycloak:keycloak-model-jpa'
+    compile 'org.keycloak:keycloak-authz-policy-common'
+    compile 'org.keycloak:keycloak-saml-core'
+    compile 'org.keycloak:keycloak-ldap-federation'
+    compile 'org.keycloak:keycloak-model-infinispan'
+    compile 'org.keycloak:keycloak-kerberos-federation'
+    compile 'org.keycloak:keycloak-js-adapter'
+    compile 'com.h2database:h2'
+    compile 'org.wildfly:wildfly-undertow:10.0.0.Final'
+    compile 'org.jboss.resteasy:resteasy-undertow:3.0.14.Final'
+    compile 'org.jboss.resteasy:resteasy-jackson2-provider'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.keycloak:keycloak-dependencies-server-all:2.0.0.Final'
+    }
+}
+

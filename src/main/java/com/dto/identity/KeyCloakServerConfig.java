@@ -6,11 +6,19 @@ import java.io.Serializable;
  * Created by mohanambalavanan on 8/08/2016.
  */
 public class KeyCloakServerConfig implements Serializable {
-    private String host = "localhost";
-    private int port = 8081;
+    private String host;
+    private int port;
     private int workerThreads = Math.max(Runtime.getRuntime().availableProcessors(), 2) * 8;
     private String resourcesHome;
 
+    public KeyCloakServerConfig(){
+        this.host = "0.0.0.0";
+        if(System.getProperty("PORT")!=null){
+           this.port = Integer.valueOf(System.getProperty("PORT"));
+        }else {
+            this.port =8081;
+        }
+    }
     public String getHost() {
         return host;
     }
