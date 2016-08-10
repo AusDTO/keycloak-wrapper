@@ -12,7 +12,7 @@ dependencies:
       - sudo apt-get install gradle
       - gradle --version
       - gradle wrapper
-      - ./gradlew build distZip
+      - ./gradlew build
   cache_directories:
     - ".gradle/"
 
@@ -22,5 +22,5 @@ deployment:
   master:
     branch: master
     commands:
-      - gradle dist
+      - gradle distZip
       - ./bin/deploy.sh
