@@ -1,0 +1,21 @@
+machine:
+    java:
+    version:openjdk8
+  environment:
+    APP_NAME: keycloak
+
+dependencies:
+  pre:
+     - gradle dependencies
+  cache_directories:
+    - ".gradle/"
+
+test:
+  override:
+    - gradle build
+deployment:
+  master:
+    branch: master
+    commands:
+      - gradle dist
+      - ./bin/deploy.sh
