@@ -7,7 +7,9 @@ machine:
 
 dependencies:
   pre:
-   - gradle build
+   - gradle --version
+   - gradle wrapper
+   - ./gradlew build distZip
   cache_directories:
     - ".gradle/"
 
