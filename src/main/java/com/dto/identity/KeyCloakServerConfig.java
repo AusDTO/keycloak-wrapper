@@ -13,8 +13,8 @@ public class KeyCloakServerConfig implements Serializable {
 
     public KeyCloakServerConfig(){
         this.host = "0.0.0.0";
-        if(System.getProperty("PORT")!=null){
-           this.port = Integer.valueOf(System.getProperty("PORT"));
+        if(System.getenv("PORT")!=null){
+           this.port = Integer.valueOf(System.getenv("PORT"));
         }else {
             this.port =8081;
         }
