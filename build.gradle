@@ -17,6 +17,9 @@ sourceCompatibility = 1.8
 
 mainClassName = 'com.dto.identity.KeyCloakServer'
 
+distZip{archiveName  'keycloak-wrapper.zip'}
+
+distTar{archiveName 'keycloak-wrapper.tar'}
 repositories {
     mavenCentral()
     jcenter()

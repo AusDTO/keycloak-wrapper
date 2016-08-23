@@ -3,13 +3,19 @@
 
 Vagrant.configure(2) do |config|
 
+
   config.vm.box = "minimal/trusty64"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
     sync_folder(config)
+    forward_port(config)
   end
 
+  def forward_port(config)
+    config.vm.network "forwarded_port", guest: 8081, host: 8081
+
+  end
   def sync_folder(config)
     config.vm.synced_folder "install_scripts/", "/tmp/scripts"
   end
@@ -18,6 +24,8 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+bash /tmp/scripts/install-base.sh
+   bash /tmp/scripts/install-oracle-jdk.sh
    bash /tmp/scripts/install-keycloak-wrapper.sh
   SHELL
 end
